@@ -64,4 +64,4 @@ INSERT INTO bon (numero, delai, id_fou) VALUES (1, 3, 1);
 INSERT INTO compo (id_art, id_bon, qte) VALUES
 (1, 1, 3),
 (5, 1, 4),
-(1, 1, 1);
+(7, 1, 1);
