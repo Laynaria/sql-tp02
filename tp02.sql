@@ -2,6 +2,7 @@
 CREATE TABLE article (
 id INT(11) AUTO_INCREMENT PRIMARY KEY,
 ref VARCHAR(13),
+designation VARCHAR(255),
 prix DECIMAL(7,2),
 id_fou INT(11)
 );
@@ -44,22 +45,23 @@ INSERT INTO fournisseur (name) VALUES
 ("Dubois & Fils");
 
 -- INSERTION ARTICLE
--- 1, 'A01', 'Perceuse P1', 74.99, 1
--- 2, 'F01', 'Boulon laiton 4 x 40 mm (sachet de 10)', 2.25, 2
--- 3, 'F02', 'Boulon laiton 5 x 40 mm (sachet de 10)', 4.45, 2
--- 4, 'D01', 'Boulon laiton 5 x 40 mm (sachet de 10)', 4.40, 3
--- 5, 'A02', 'Meuleuse 125mm', 37.85, 1
--- 6, 'D03', 'Boulon acier zingué 4 x 40mm (sachet de 10)', 1.80, 3
--- 7, 'A03', 'Perceuse à colonne', 185.25, 1
--- 8, 'D04', 'Coffret mêches à bois', 12.25, 3
--- 9, 'F03', 'Coffret mêches plates', 6.25, 2
--- 10, 'F04', 'Fraises d''encastrement', 8.14, 2
+INSERT INTO article (ref, designation, prix, id_fou) VALUES 
+('A01', 'Perceuse P1', 74.99, 1),
+('F01', 'Boulon laiton 4 x 40 mm (sachet de 10)', 2.25, 2),
+('F02', 'Boulon laiton 5 x 40 mm (sachet de 10)', 4.45, 2),
+('D01', 'Boulon laiton 5 x 40 mm (sachet de 10)', 4.40, 3),
+('A02', 'Meuleuse 125mm', 37.85, 1),
+('D03', 'Boulon acier zingué 4 x 40mm (sachet de 10)', 1.80, 3),
+('A03', 'Perceuse à colonne', 185.25, 1),
+('D04', 'Coffret mêches à bois', 12.25, 3),
+('F03', 'Coffret mêches plates', 6.25, 2),
+('F04', 'Fraises d''encastrement', 8.14, 2);
 
 -- INSERTION BON
--- Insertion du bon de commande auprès du fournisseur "Française d'Imports"
+INSERT INTO bon (numero, delai, id_fou) VALUES (1, 3, 1);
 
 -- INSERTION COMPO
--- Insertion de la composition du bon de commande n°001
--- 3 Perceuses P1
--- 4 Meuleuses 125mm
--- 1 Perceuse à colonne
+INSERT INTO compo (id_art, id_bon, qte) VALUES
+(1, 1, 3),
+(5, 1, 4),
+(1, 1, 1);
