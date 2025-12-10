@@ -11,14 +11,22 @@ SELECT * FROM article WHERE prix BETWEEN 2 AND 6.25;
 -- e. Listez tous les articles, dans l’ordre des prix descendants, et dont le prix n’est pas
 -- compris entre 2 et 6.25 euros et dont le fournisseur est Française d’Imports.
 SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name = 'Française d''Imports' AND prix NOT BETWEEN 2 AND 6.25 ORDER BY prix DESC;
+--sans jointure
+SELECT * FROM article WHERE id_fou = 1 AND prix NOT BETWEEN 2 AND 6.25 ORDER BY prix DESC;
 -- f. En utilisant un opérateur logique, listez tous les articles dont les fournisseurs sont la
 -- Française d’imports ou Dubois et Fils
 SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name = 'Française d''Imports' OR fournisseur.name = 'Dubois & Fils';
+--sans jointure
+SELECT * FROM article WHERE id_fou = 1 OR id_fou = 3;
 -- g. En utilisant l’opérateur IN, réalisez la même requête que précédemment
 SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name IN ('Française d''Imports', 'Dubois & Fils');
+--sans jointure
+SELECT * FROM article WHERE id_fou IN (1, 3);
 -- h. En utilisant les opérateurs NOT et IN, listez tous les articles dont les fournisseurs ne
 -- sont ni Française d’Imports, ni Dubois et Fils.
 SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name NOT IN ('Française d''Imports', 'Dubois & Fils');
+--sans jointure
+SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE id_fou NOT IN (1, 3);
 -- i. Listez tous les bons de commande dont la date de commande est entre le
 -- 01/02/2019 et le 30/04/2019.
 SELECT * FROM bon WHERE date_cmde BETWEEN '2019-02-01' AND '2019-04-30';
