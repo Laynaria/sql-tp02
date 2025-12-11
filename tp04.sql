@@ -9,11 +9,11 @@ SELECT * FROM article WHERE designation LIKE '%Boulon%' ORDER BY prix DESC;
 SELECT * FROM article WHERE designation LIKE '%sachet%';
 -- e. Listez tous les articles dont la désignation contient le mot « sachet »
 -- indépendamment de la casse !
-SELECT * FROM article WHERE designation LIKE '%sachet%';
+SELECT * FROM article WHERE LOWER(designation) LIKE '%sachet%';
 -- f. Listez les articles avec les informations fournisseur correspondantes. Les résultats
 -- doivent être triées dans l’ordre alphabétique des fournisseurs et par article du prix le
 -- plus élevé au moins élevé.
-SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id ORDER BY fournisseur.name DESC, article.prix DESC;
+SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id ORDER BY fournisseur.name ASC, article.prix DESC;
 -- g. Listez les articles de la société « Dubois & Fils »
 SELECT * from article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name = 'Dubois & Fils';
 -- h. Calculez la moyenne des prix des articles de la société « Dubois & Fils »
