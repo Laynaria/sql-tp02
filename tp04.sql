@@ -53,11 +53,11 @@ SELECT bon.id as bon_id, SUM(compo.qte) as somme FROM bon
     GROUP BY bon.id;
 -- o. Affichez les numéros de bons de commande qui contiennent plus de 25 articles et
 -- affichez le nombre d’articles de chacun de ces bons de commande
-SELECT bon.id as bon_id, SUM(compo.qte) as somme FROM bon
+SELECT bon.numero, SUM(compo.qte) as somme FROM bon
     INNER JOIN compo ON bon.id = compo.id_bon
-    INNER JOIN article on article.id = compo.id_art
-    INNER JOIN fournisseur on fournisseur.id = article.id_fou
-    GROUP BY bon.id
+--    INNER JOIN article on article.id = compo.id_art
+--    INNER JOIN fournisseur on fournisseur.id = article.id_fou
+    GROUP BY bon.numero
     HAVING somme > 25;
 -- p. Calculez le coût total des commandes effectuées sur le mois d’avril
 
