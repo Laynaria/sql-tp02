@@ -40,7 +40,7 @@ SELECT DISTINCT bon.*, article.designation, fournisseur.name as fournisseur_name
     INNER JOIN fournisseur on fournisseur.id = article.id_fou
     WHERE designation LIKE '%boulon%';
 -- m. Calculez le prix total de chaque bon de commande
-SELECT bon.id as bon_id, SUM(article.prix) as somme FROM bon
+SELECT bon.id as bon_id, SUM(article.prix * compo.qte) as total FROM bon
     INNER JOIN compo ON bon.id = compo.id_bon
     INNER JOIN article on article.id = compo.id_art
     INNER JOIN fournisseur on fournisseur.id = article.id_fou
