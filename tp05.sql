@@ -25,13 +25,8 @@ UPDATE compo
 UPDATE article
     SET designation =
     CONCAT(
-        SUBSTR(
-            designation,
-            1,
-            POSITION('(' IN designation) - 1
-            ),
-        SUBSTR(
-            designation,
-            POSITION(')' IN designation) +1
-            )
-    );
+        SUBSTR(designation, 1, POSITION('(' IN designation) - 1),
+        SUBSTR(designation, POSITION(')' IN designation) +1)
+    )
+    -- WHERE LOCATE('(', DESIGNATION) > 0 AND LOCATE(')', DESIGNATION) > 0
+    ;
