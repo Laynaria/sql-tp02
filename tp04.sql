@@ -48,8 +48,8 @@ SELECT bon.id as bon_id, SUM(article.prix * compo.qte) as total FROM bon
 -- n. Comptez le nombre d’articles de chaque bon de commande
 SELECT bon.id as bon_id, SUM(compo.qte) as somme FROM bon
     INNER JOIN compo ON bon.id = compo.id_bon
-    INNER JOIN article on article.id = compo.id_art
-    INNER JOIN fournisseur on fournisseur.id = article.id_fou
+--    INNER JOIN article on article.id = compo.id_art
+--    INNER JOIN fournisseur on fournisseur.id = article.id_fou
     GROUP BY bon.id;
 -- o. Affichez les numéros de bons de commande qui contiennent plus de 25 articles et
 -- affichez le nombre d’articles de chacun de ces bons de commande
