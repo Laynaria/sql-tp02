@@ -28,7 +28,7 @@ SELECT fournisseur.name, AVG(article.prix) as moyenne from article
 -- 05/04/2019 à 12h00.
 SELECT * FROM bon WHERE date_cmde BETWEEN '2019-03-01' AND '2019-04-05 12:00:00';
 -- k. Sélectionnez les divers bons de commande qui contiennent des boulons
-SELECT * FROM bon
+SELECT DISTINCT bon.* FROM bon
     INNER JOIN compo ON bon.id = compo.id_bon
     INNER JOIN article on article.id = compo.id_art
     WHERE designation LIKE '%boulon%';
