@@ -60,6 +60,13 @@ SELECT bon.numero, SUM(compo.qte) as somme FROM bon
     GROUP BY bon.numero
     HAVING somme > 25;
 -- p. Calculez le coût total des commandes effectuées sur le mois d’avril
+SELECT bon.numero as numero_commande, SUM(compo.qte * article.prix) as prix_total
+FROM bon
+    INNER JOIN compo ON bon.id = compo.id_bon
+    INNER JOIN article on article.id = compo.id_art
+    -- WHERE bon.date_cmde BETWEEN '2019-04-01' AND '2019-04-30'
+    WHERE MONTH(bon.date_cmde) = 4 AND YEAR(bon.date_cmde) = 2019
+    GROUP BY numero_commande;
 
 
 -- a. Sélectionnez les articles qui ont une désignation identique mais des fournisseurs
