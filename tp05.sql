@@ -18,7 +18,7 @@ UPDATE compo
     INNER JOIN bon ON compo.id_bon = bon.id
     INNER JOIN fournisseur ON bon.id_fou = fournisseur.id
     SET compo.qte = (compo.qte * 2)
-    WHERE fournisseur.nom = 'Française d''Imports';
+    WHERE fournisseur.name = 'Française d''Imports';
     
 -- e. Mettez au point une requête update qui permette de supprimer les éléments entre parenthèses dans les désignations.
 -- Il vous faudra utiliser des fonctions comme substring et position.
