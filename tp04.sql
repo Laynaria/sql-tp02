@@ -17,9 +17,9 @@ SELECT * FROM article INNER JOIN fournisseur ON article.id_fou = fournisseur.id 
 -- g. Listez les articles de la société « Dubois & Fils »
 SELECT * from article INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name = 'Dubois & Fils';
 -- h. Calculez la moyenne des prix des articles de la société « Dubois & Fils »
-SELECT article.id as article_id, fournisseur.name, AVG(article.prix) as moyenne from article
+SELECT fournisseur.name, AVG(article.prix) as moyenne from article
     INNER JOIN fournisseur ON article.id_fou = fournisseur.id WHERE fournisseur.name = 'Dubois & Fils'
-    GROUP BY article.id, fournisseur.name;
+    GROUP BY fournisseur.name;
 -- i. Calculez la moyenne des prix des articles de chaque fournisseur
 SELECT fournisseur.name, AVG(article.prix) as moyenne from article
     INNER JOIN fournisseur ON article.id_fou = fournisseur.id
